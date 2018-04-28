@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <groupId>br.com.bilac</groupId>
-    <artifactId>controller</artifactId>
+    <artifactId>model</artifactId>
     <version>1.0.0</version>
 
     <modelVersion>4.0.0</modelVersion>
@@ -35,18 +35,23 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
-            <groupId>br.com.bilac</groupId>
-            <artifactId>service</artifactId>
-            <version>1.0.0</version>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
         </dependency>
         <dependency>
-            <groupId>br.com.bilac</groupId>
-            <artifactId>dto</artifactId>
-            <version>1.0.0</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!-- Test scopes -->
         <dependency>
