@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDTO {
+public class CustomerDTO {
 
-    private String id;
-    private String description;
-    private Double price;
+    private Long id;
+    private String name;
+    private String paymentMethod;
 }

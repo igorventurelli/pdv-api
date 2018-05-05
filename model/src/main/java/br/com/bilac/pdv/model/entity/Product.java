@@ -13,9 +13,8 @@ import javax.persistence.*;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_produto")
-    private Integer id;
+    private String id;
 
     @Column(name = "cod_barras")
     private String barcode;
