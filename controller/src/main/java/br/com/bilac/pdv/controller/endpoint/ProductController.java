@@ -32,10 +32,4 @@ public class ProductController {
         logger.info(String.format("Recebi requisição /rest/products/%s", productId));
         return new SingleProductWrapper(service.findById(productId));
     }
-
-    @PostMapping("/")
-    @ResponseStatus(code = HttpStatus.CREATED)
-    public void create(@RequestBody ProductDTO dto) {
-        System.out.println("criado");
-    }
 }
