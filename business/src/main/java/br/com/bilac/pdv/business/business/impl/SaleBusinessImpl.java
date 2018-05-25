@@ -7,11 +7,9 @@ import br.com.bilac.pdv.model.entity.Product;
 import br.com.bilac.pdv.model.entity.ProductSale;
 import br.com.bilac.pdv.model.entity.Sale;
 import br.com.bilac.pdv.model.repository.ProductSaleRepository;
-import br.com.bilac.pdv.model.repository.SaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Component
@@ -19,9 +17,6 @@ public class SaleBusinessImpl implements SaleBusiness {
 
     @Autowired
     private ProductSaleRepository productSaleRepository;
-
-//    @Autowired
-//    private SaleRepository saleRepository;
 
     @Override
     public void sell(SaleDTO saleDTO) {
@@ -40,7 +35,5 @@ public class SaleBusinessImpl implements SaleBusiness {
         productSale.setProductQuantity(saleDTO.getProductQuantity());
         productSale.setPaymentMethod(saleDTO.getPaymentMethod());
         productSaleRepository.save(productSale);
-
-
     }
 }

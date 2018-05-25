@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/rest/sales")
 public class SaleController {
@@ -17,7 +15,7 @@ public class SaleController {
 
     @PostMapping("/")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void sell(@RequestBody SaleDTO saleDTO) {
-        service.sell(saleDTO);
+    public void sell(@RequestBody SaleDTO sale) {
+        service.sell(sale);
     }
 }

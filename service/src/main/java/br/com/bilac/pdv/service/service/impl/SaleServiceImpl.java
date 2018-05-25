@@ -6,8 +6,6 @@ import br.com.bilac.pdv.service.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class SaleServiceImpl implements SaleService {
 
