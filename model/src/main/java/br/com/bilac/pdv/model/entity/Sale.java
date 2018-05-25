@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -18,15 +19,20 @@ public class Sale {
     @Column(name = "id_venda")
     private Long id;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data_hora")
-    private LocalDateTime dateTime;
+    private Date dateTime;
 
-    @Column(name = "id_cliente")
-    private Long customerId;
+    @OneToOne
+    @JoinColumn(name = "id_cliente")
+    private Customer customer;
 
     @Column(name = "total_venda")
     private Double total;
 
     @Column(name = "desconto")
     private Double discount;
+
+    @OneToOne(mappedBy = "sale", cascade = CascadeType.ALL)
+    private ProductSale productSale;
 }

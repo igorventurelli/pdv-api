@@ -36,4 +36,7 @@ public class Product {
 
     @Column(name = "qtd")
     private Integer quantity;
+
+    @OneToOne(mappedBy = "product")
+    private ProductSale productSale;
 }

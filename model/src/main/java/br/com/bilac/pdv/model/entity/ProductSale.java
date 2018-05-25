@@ -17,11 +17,13 @@ public class ProductSale {
     @Column(name = "id_venda_produto")
     private Long id;
 
-    @Column(name = "id_venda")
-    private Long sellId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_venda")
+    private Sale sale;
 
-    @Column(name = "cod_produto")
-    private String productId;
+    @OneToOne
+    @JoinColumn(name = "cod_produto")
+    private Product product;
 
     @Column(name = "qtd_produto")
     private Integer productQuantity;

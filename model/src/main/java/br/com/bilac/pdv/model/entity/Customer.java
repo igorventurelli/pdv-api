@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Data
 @NoArgsConstructor
@@ -23,4 +24,7 @@ public class Customer {
 
     @Column(name = "forma_pagamento")
     private String paymentMethod;
+
+    @OneToOne(mappedBy = "customer")
+    private Sale sale;
 }

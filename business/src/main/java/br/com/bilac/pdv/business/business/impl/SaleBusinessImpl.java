@@ -2,6 +2,8 @@ package br.com.bilac.pdv.business.business.impl;
 
 import br.com.bilac.pdv.business.business.SaleBusiness;
 import br.com.bilac.pdv.dto.dto.SaleDTO;
+import br.com.bilac.pdv.model.entity.Customer;
+import br.com.bilac.pdv.model.entity.Product;
 import br.com.bilac.pdv.model.entity.ProductSale;
 import br.com.bilac.pdv.model.entity.Sale;
 import br.com.bilac.pdv.model.repository.ProductSaleRepository;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Component
 public class SaleBusinessImpl implements SaleBusiness {
@@ -17,22 +20,27 @@ public class SaleBusinessImpl implements SaleBusiness {
     @Autowired
     private ProductSaleRepository productSaleRepository;
 
-    @Autowired
-    private SaleRepository saleRepository;
+//    @Autowired
+//    private SaleRepository saleRepository;
 
     @Override
     public void sell(SaleDTO saleDTO) {
         Sale sale = new Sale();
         sale.setTotal(saleDTO.getTotal());
-        sale.setCustomerId(saleDTO.getCustomerId());
-        sale.setDateTime(LocalDateTime.now());
-        Sale managedSale = saleRepository.save(sale);
+        Customer customer = new Customer();
+        customer.setId(saleDTO.getCustomerId());
+        sale.setCustomer(customer);
+        sale.setDateTime(new Date());
 
         ProductSale productSale = new ProductSale();
-        productSale.setSellId(managedSale.getId());
-        productSale.setProductId(saleDTO.getProductId());
+        productSale.setSale(sale);
+        Product product = new Product();
+        product.setId(saleDTO.getProductId());
+        productSale.setProduct(product);
         productSale.setProductQuantity(saleDTO.getProductQuantity());
         productSale.setPaymentMethod(saleDTO.getPaymentMethod());
         productSaleRepository.save(productSale);
+
+
     }
 }
